@@ -1,20 +1,20 @@
 <template>
   <h1>Welcome to the Forum</h1>
-  <TheadList :threads="threads"/>
+  <CategoryList :categories="categories"/>
 </template>
 
 <script>
 import sourceDate from '@/data.json';
-import TheadList from '@/components/TheadList.vue';
+import CategoryList from '@/components/CategoryList.vue';
 
 export default {
   name: 'PageHome',
   components: {
-    TheadList,
+    CategoryList,
   },
   data() {
     return {
-      threads: sourceDate.threads,
+      categories: sourceDate.categories,
     };
   },
 };
