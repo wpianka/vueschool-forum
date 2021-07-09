@@ -10,7 +10,6 @@
 
 <script>
 import ForumList from '@/components/ForumList.vue';
-import sourceDate from '@/data.json';
 
 export default {
   name: 'CategoryList',
@@ -25,12 +24,10 @@ export default {
   },
   methods: {
     getForumsForCategory(category) {
-      return sourceDate.forums.filter((forum) => forum.categoryId === category.id);
+      return this.$store.state.forums.filter((forum) => forum.categoryId === category.id);
     },
   },
 };
 </script>
-
 <style scoped>
-
 </style>

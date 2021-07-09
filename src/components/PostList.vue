@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import sourceDate from '@/data.json';
-
 export default {
   name: 'PostList',
   props: {
@@ -39,10 +37,10 @@ export default {
       type: Array,
     },
   },
-  data() {
-    return {
-      users: sourceDate.users,
-    };
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
   },
   methods: {
     userById(userId) {

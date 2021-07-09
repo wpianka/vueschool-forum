@@ -8,7 +8,6 @@
 
 <script>
 import ForumList from '@/components/ForumList.vue';
-import sourceDate from '@/data.json';
 
 export default {
   name: 'Category',
@@ -23,12 +22,12 @@ export default {
   },
   computed: {
     category() {
-      return sourceDate.categories.find((category) => category.id === this.id);
+      return this.$store.state.categories.find((category) => category.id === this.id);
     },
   },
   methods: {
     getForumsForCategory(category) {
-      return sourceDate.forums.filter((forum) => forum.categoryId === category.id);
+      return this.$store.state.forums.filter((forum) => forum.categoryId === category.id);
     },
   },
 };

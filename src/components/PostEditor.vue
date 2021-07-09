@@ -20,7 +20,7 @@
 </template>
 
 <script>
-// import sourceDate from "@/data.json";
+// import this.$store.state from "@/data.json";
 
 export default {
   name: 'PostEditor',

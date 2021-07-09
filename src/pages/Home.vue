@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import sourceDate from '@/data.json';
 import CategoryList from '@/components/CategoryList.vue';
 
 export default {
@@ -12,10 +11,10 @@ export default {
   components: {
     CategoryList,
   },
-  data() {
-    return {
-      categories: sourceDate.categories,
-    };
+  computed: {
+    categories() {
+      return this.$store.state.categories;
+    },
   },
 };
 </script>
