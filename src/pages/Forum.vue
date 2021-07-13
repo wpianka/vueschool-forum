@@ -16,7 +16,6 @@
 
 <script>
 import TheadList from '@/components/TheadList.vue';
-import sourceDate from '@/data.json';
 
 export default {
   name: 'Forum',
@@ -31,10 +30,10 @@ export default {
   },
   computed: {
     forum() {
-      return sourceDate.forums.find((forum) => forum.id === this.id);
+      return this.$store.state.forums.find((forum) => forum.id === this.id);
     },
     threads() {
-      return sourceDate.threads.filter((thread) => thread.forumId === this.id);
+      return this.$store.state.threads.filter((thread) => thread.forumId === this.id);
     },
   },
 };

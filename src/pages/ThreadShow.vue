@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import sourceDate from '@/data.json';
 import PostList from '@/components/PostList.vue';
 import PostEditor from '@/components/PostEditor.vue';
 
@@ -23,13 +22,13 @@ export default {
       type: String,
     },
   },
-  data() {
-    return {
-      threads: sourceDate.threads,
-      posts: sourceDate.posts,
-    };
-  },
   computed: {
+    threads() {
+      return this.$store.state.threads;
+    },
+    posts() {
+      return this.$store.state.posts;
+    },
     thread() {
       return this.threads.find((thread) => thread.id === this.id);
     },
@@ -43,8 +42,7 @@ export default {
         ...eventData.post,
         threadId: this.id,
       };
-      this.posts.push(post);
-      this.thread.posts.push(post.id);
+      this.$store.dispatch('createPost', post);
     },
   },
 };

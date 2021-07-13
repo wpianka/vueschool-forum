@@ -4,6 +4,7 @@ import ThreadShow from '@/pages/ThreadShow.vue';
 import NotFound from '@/pages/NotFound.vue';
 import Forum from '@/pages/Forum.vue';
 import Category from '@/pages/Category.vue';
+import Profile from '@/pages/Profile.vue';
 import sourceDate from '@/data.json';
 
 const routes = [
@@ -11,6 +12,18 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/me',
+    name: 'Profile',
+    component: Profile,
+    meta: { toTop: true, smoothScroll: true },
+  },
+  {
+    path: '/me/edit',
+    name: 'ProfileEdit',
+    component: Profile,
+    props: { edit: true },
   },
   {
     path: '/category/:id',
@@ -54,4 +67,12 @@ const routes = [
 export default createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to) {
+    // eslint-disable-next-line no-restricted-globals
+    if (to.meta.toTop) scroll.top = 0;
+    // eslint-disable-next-line no-restricted-globals
+    if (to.meta.smoothScroll) scroll.behavior = 'smooth';
+    // eslint-disable-next-line no-restricted-globals
+    return scroll;
+  },
 });

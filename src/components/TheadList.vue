@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import sourceDate from '@/data.json';
+
 import AppDate from '@/components/AppDate.vue';
 
 export default {
@@ -55,11 +55,13 @@ export default {
       require: true,
     },
   },
-  data() {
-    return {
-      posts: sourceDate.posts,
-      users: sourceDate.users,
-    };
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    },
+    users() {
+      return this.$store.state.users;
+    },
   },
   methods: {
     postById(postId) {

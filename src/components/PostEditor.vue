@@ -20,7 +20,7 @@
 </template>
 
 <script>
-// import sourceDate from "@/data.json";
+// import this.$store.state from "@/data.json";
 
 export default {
   name: 'PostEditor',
@@ -32,12 +32,8 @@ export default {
   },
   methods: {
     save() {
-      const postId = `qqqq${Math.random()}`;
       const post = {
-        id: postId,
         text: this.text,
-        publishedAt: Math.floor(Date.now() / 1000),
-        userId: 'rpbB8C6ifrYmNDufMERWfQUoa202',
       };
 
       this.$emit('save', { post });
