@@ -1,7 +1,12 @@
 <template>
   <div class="col-full push-top">
     <h1>Editing: <i>{{ thread.title }}</i></h1>
-    <ThreadEditor :title="thread.title" :text="text" @save="save" @cancel="cancel" />
+    <ThreadEditor
+      :title="thread.title"
+      :text="text"
+      @save="save"
+      @cancel="cancel"
+    />
   </div>
 </template>
 
@@ -39,7 +44,7 @@ export default {
       this.$router.push({ name: 'ThreadShow', params: { id: thread.id } });
     },
     cancel() {
-      this.$router.push({ name: 'Forum', params: { id: this.forum.id } });
+      this.$router.push({ name: 'ThreadShow', params: { id: this.id } });
     },
   },
 };
