@@ -1,6 +1,14 @@
 <template>
   <div class="col-large push-top">
-    <h1>{{thread.title}}</h1>
+    <h1>{{thread.title}}
+    <router-link
+      :to="{ name: 'ThreadEdit', id: id }"
+      class="btn-green btn-small"
+      tag="button"
+    >
+      Edit Thread
+    </router-link>
+    </h1>
     <post-list :posts="threadPosts" />
     <post-editor @save="addPost"/>
   </div>
@@ -18,7 +26,7 @@ export default {
   },
   props: {
     id: {
-      require: true,
+      required: true,
       type: String,
     },
   },
